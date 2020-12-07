@@ -70,8 +70,9 @@ if __name__ == '__main__':
 
     with open(f'{cwd}/puzzle_input.txt', 'r') as file:
         passports = file.read()[:-1].split('\n\n')
-        passports = [passport.replace('\n', ' ') for passport in passports]
-        passports = [{(fs := field.split(':'))[0]: fs[1] for field in passport.split(' ')} for passport in passports]
+
+    passports = [passport.replace('\n', ' ') for passport in passports]
+    passports = [{(fs := field.split(':'))[0]: fs[1] for field in passport.split(' ')} for passport in passports]
 
     # Without constraints
     number_of_valid = sum([check_if_valid(passport, check_constraints=False) for passport in passports])

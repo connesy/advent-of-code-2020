@@ -26,12 +26,12 @@ if __name__ == '__main__':
     with open(f'{cwd}/puzzle_input.txt', 'r') as file:
         boarding_passes = file.read()[:-1].split('\n')
 
-        seats = [process_boarding_pass(boarding_pass) for boarding_pass in boarding_passes]
+    seats = [process_boarding_pass(boarding_pass) for boarding_pass in boarding_passes]
 
-        rows, cols, seat_ids = zip(*seats)
-        print(max(seat_ids))
+    rows, cols, seat_ids = zip(*seats)
+    print(max(seat_ids))
 
-        seat_ids = set(seat_ids)
-        for seat in range(max(seat_ids)):
-            if seat - 1 in seat_ids and seat not in seat_ids and seat + 1 in seat_ids:
-                print(f"Should be this seat: {seat}")
+    seat_ids = set(seat_ids)
+    for seat in range(max(seat_ids)):
+        if seat - 1 in seat_ids and seat not in seat_ids and seat + 1 in seat_ids:
+            print(f"Should be this seat: {seat}")
